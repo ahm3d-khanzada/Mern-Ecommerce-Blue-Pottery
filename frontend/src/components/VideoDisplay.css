@@ -1,0 +1,475 @@
+/* Instagram Reels Style */
+:root {
+  --primary: #0095f6;
+  --secondary: #00376b;
+  --accent: #00b8d4;
+  --dark: #121212;
+  --light: #fafafa;
+  --gray: #8e8e8e;
+  --border: rgba(255, 255, 255, 0.1);
+  --overlay: rgba(0, 0, 0, 0.5);
+  --gradient: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+/* Container Styles */
+.reels-container {
+  max-width: 100%;
+  padding: 0;
+  position: relative;
+  height: 100vh;
+  background-color: var(--dark);
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.reels-container.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Header Styles */
+.reels-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.fullscreen-toggle {
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  font-size: 0.75rem;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.fullscreen-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Feed Styles */
+.reels-feed {
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  position: relative;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.reels-feed::-webkit-scrollbar {
+  display: none;
+}
+
+.reel-item {
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.reel-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #000;
+}
+
+/* Video Overlay Styles */
+.video-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: #fff;
+  z-index: 2;
+}
+
+.video-info {
+  max-width: 85%;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.75rem;
+  border: 2px solid white;
+}
+
+.username {
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.video-title {
+  margin: 0.25rem 0;
+  font-size: 0.875rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.video-description {
+  font-size: 0.75rem;
+  opacity: 0.9;
+  margin-bottom: 0;
+  color: #fff;
+  line-height: 1.4;
+}
+
+/* Desktop Action Buttons */
+.desktop-actions {
+  position: absolute;
+  right: 1rem;
+  bottom: 30%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  z-index: 5;
+}
+
+/* Mobile Action Buttons */
+.mobile-actions {
+  position: absolute;
+  bottom: 5rem;
+  right: 1rem;
+  z-index: 5;
+}
+
+.mobile-actions-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.action-button {
+  background: none;
+  border: none;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease;
+}
+
+.action-button svg {
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+}
+
+.action-count {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.like-button.liked svg {
+  color: #ff375f;
+}
+
+/* Share Popover */
+.share-popover {
+  position: fixed;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #262626;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  z-index: 20;
+  width: 80%;
+  max-width: 320px;
+}
+
+.share-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.share-icon {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  background: none;
+  border: none;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.share-icon:hover {
+  transform: scale(1.1);
+}
+
+.share-icon.whatsapp {
+  background-color: #25d366;
+}
+
+.share-icon.email {
+  background-color: #d44638;
+}
+
+.share-icon.facebook {
+  background-color: #1877f2;
+}
+
+.share-icon.twitter {
+  background-color: #1da1f2;
+}
+
+.share-icon.clipboard {
+  background-color: #555;
+}
+
+.close-share {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.close-share:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Navigation Buttons */
+.nav-button {
+  position: absolute;
+  z-index: 10;
+  background-color: rgba(38, 38, 38, 0.8);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-button:hover {
+  background-color: rgba(38, 38, 38, 1);
+}
+
+.prev-button {
+  top: 80px;
+  right: 16px;
+}
+
+.next-button {
+  bottom: 16px;
+  right: 16px;
+}
+
+.nav-button.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Copy Toast */
+.copy-toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  z-index: 9999;
+  transition: transform 0.3s ease;
+}
+
+.copy-toast.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Double tap like animation */
+@keyframes heartBeat {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  15% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  45% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.heart-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.heart-animation.active {
+  animation: heartBeat 1s ease-in-out forwards;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .desktop-actions {
+    display: flex;
+  }
+
+  .mobile-actions {
+    display: none;
+  }
+
+  .video-overlay {
+    padding: 1.5rem;
+  }
+
+  .share-popover {
+    position: absolute;
+    right: 100%;
+    top: 0;
+    left: auto;
+    transform: none;
+    margin-right: 0.75rem;
+    width: auto;
+  }
+
+  .video-container {
+    max-width: 80%;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 767px) {
+  .desktop-actions {
+    display: none;
+  }
+
+  .mobile-actions {
+    display: block;
+  }
+
+  .video-overlay {
+    padding: 1rem;
+  }
+
+  .video-title {
+    font-size: 0.8rem;
+  }
+
+  .video-description {
+    font-size: 0.7rem;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .action-button svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .action-count {
+    font-size: 0.7rem;
+  }
+
+  .share-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+

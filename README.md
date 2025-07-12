@@ -4,13 +4,6 @@
 
 ---
 
-## 📸 Demo
-
-> _Add screenshots or demo GIF here_  
-*(Optional)*
-
----
-
 ## 🚀 Features
 
 - 🛍️ Full E-Commerce Functionality (Products, Categories, Cart, Orders)

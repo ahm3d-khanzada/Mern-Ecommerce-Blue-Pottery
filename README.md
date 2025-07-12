@@ -41,6 +41,7 @@
 ---
 
 ## 📂 Project Structure
+```bash
 Mern-Ecommerce-Blue-Pottery/
 │
 ├── backend/ # Express backend (API, DB, Auth)
@@ -60,3 +61,53 @@ Mern-Ecommerce-Blue-Pottery/
 ├── .env # Environment variables
 ├── .gitignore
 └── README.md
+```
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/ahm3d-khanzada/Mern-Ecommerce-Blue-Pottery.git
+cd Mern-Ecommerce-Blue-Pottery
+```
+### 2. Setup the backend
+```bash
+cd backend
+npm install
+```
+Create a .env file in backend/ with:
+```bash
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+STRIPE_SECRET=your_stripe_key
+```
+Start the backend server:
+```bash
+npm run dev
+```
+### 3. Setup the frontend
+```bash
+cd ../frontend
+npm install
+npm start
+```
+## 🔐 Authentication Features
+
+- Register/Login with hashed passwords
+- JWT Token Storage in HTTP-Only Cookies
+- Protected Routes for Admin/User
+
+## 🪪 License
+MIT License © Ahmed Khanzada
+---
+
+Would you like me to:
+- Generate a ready-to-download `README.md` file?
+- Add shields.io badges (React, Node, Mongo, License, etc)?
+- Add a live preview GIF/image section?
+
+Let me know!
